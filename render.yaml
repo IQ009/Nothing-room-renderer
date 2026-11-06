@@ -1,0 +1,13 @@
+# Render Blueprint: a FREE static site. The MP4 is rendered during the build (Remotion + Three.js + headless Chromium + FFmpeg),
+# then published in dist/ together with a download page.
+services:
+  - type: web
+    name: nothing-room-renderer
+    runtime: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    autoDeploy: false
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0

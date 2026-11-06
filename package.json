@@ -1,0 +1,22 @@
+{
+  "name": "nothing-room-renderer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build-time Remotion + Three.js render of a 9:16 (1080x1920) animated short, published as a static download page.",
+  "scripts": {
+    "studio": "remotion studio src/index.jsx",
+    "render": "remotion render src/index.jsx NothingRoom out/nothing-room.mp4 --codec=h264 --crf=20 --gl=swangle --image-format=jpeg --jpeg-quality=88 --concurrency=2 --timeout=180000 --log=info",
+    "still": "remotion still src/index.jsx NothingRoom out/still.png --gl=swangle --frame=300",
+    "site": "node scripts/build-site.js",
+    "build": "npm run render && npm run site"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.17.10",
+    "@remotion/cli": "4.0.200",
+    "@remotion/three": "4.0.200",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.200",
+    "three": "0.169.0"
+  }
+}
