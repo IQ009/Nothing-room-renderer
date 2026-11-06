@@ -7,7 +7,8 @@
     "studio": "remotion studio src/index.jsx",
     "render": "node scripts/render.mjs",
     "site": "node scripts/build-site.js",
-    "build": "npm run render && npm run site"
+    "build": "npm run render && npm run site",
+    "preview": "node scripts/preview.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "8.17.10",
