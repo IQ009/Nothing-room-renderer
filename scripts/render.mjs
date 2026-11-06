@@ -49,7 +49,7 @@ let r = run(['browser', 'ensure']);
 if (r.status !== 0) fail('Could not set up headless Chromium. If the log above lists missing shared libraries (libnss3, libatk, ...), the Render Node build image lacks them: use a Docker-based service instead of a static-site build.');
 
 // 5. the composition must really be registered under the expected id
-r = run(['compositions', entry, '--public-dir=.render-public', '--gl=swangle', '--log=error'], true);
+r = run(['compositions', entry, '--public-dir=.render-public', '--gl=swangle', '--log=info'], true);
 if (r.status !== 0) fail('Could not load the Remotion bundle: see the compile error above.');
 const listed = (r.stdout || '').replace(/\u001b\[[0-9;]*m/g, '');
 if (!new RegExp(`\\b${COMP}\\b`).test(listed)) fail(`Composition "${COMP}" is not registered. Registered compositions:\n${listed}`);
